@@ -54,9 +54,8 @@ Route::get('canciones/{id_cancion?}', function ($id_cancion = null) {
                     'artista' => 'Alguien'];
 
     if(!is_null($id_cancion)){
-        $cancion = $canciones[$id_cancion]
-    }
-    else{
+        $cancion = $canciones[$id_cancion];
+    } else{
         $cancion = null;
     }
 

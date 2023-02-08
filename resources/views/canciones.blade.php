@@ -9,12 +9,12 @@
 <body>
     <h1>Canciones</h1>
     @if(is_null($cancion))
-    <ul>
-        <!-- Con blade tenemos codigo php más abreviado -->
-        @foreach ($canciones as $cancion)
-            <li>{{ $cancion['nombre'] }} - {{$cancion['artista']}}</li>
-        @endforeach
-    </ul>
+        <ul>
+            <!-- Con blade tenemos codigo php más abreviado -->
+            @foreach ($canciones as $cancion)
+                <li>{{ $cancion['nombre'] }} - {{$cancion['artista']}}</li>
+            @endforeach
+        </ul>
     @else
         <h1>{{$cancion['nombre']}}</h1>
         <h2>{{$cancion['artista']}}</h2>
