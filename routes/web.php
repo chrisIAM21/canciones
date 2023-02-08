@@ -18,5 +18,17 @@ Route::get('/', function () {
 });
 
 Route::get('/', function () {
-    return view('canciones');
+
+    $canciones = [];
+    $canciones[] = ['nombre' => 'Hola',
+                    'artista' => 'Yo'];
+    $canciones[] = ['nombre' => 'Adios',
+                    'artista' => 'Alguien'];
+    
+
+    //dd($canciones, 'Hola'); //Es para debuguear por parte de laravel
+    
+    return view('canciones', compact('canciones'));
+        //-> with(['canciones' => $canciones]);
+
 });

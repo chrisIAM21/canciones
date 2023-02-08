@@ -8,10 +8,12 @@
 </head>
 <body>
     <h1>Canciones</h1>
-    <?php
-    $variable = [
-        
-    ];
-    ?>
+    <ul>
+        <!-- Con blade tenemos codigo php más abreviado -->
+        @foreach ($canciones as $cancion)
+            <li>{{ $cancion['nombre'] }} - {{$cancion['artista']}}</li>
+        @endforeach
+    </ul>
+    
 </body>
 </html>
