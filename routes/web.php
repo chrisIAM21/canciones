@@ -16,45 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('canciones', function () {
-
-    $canciones = [];
-    $canciones[] = ['nombre' => 'Hola',
-                    'artista' => 'Yo'];
-    $canciones[] = ['nombre' => 'Adios',
-                    'artista' => 'Alguien'];
-
-    //dd($canciones, 'Hola'); //Es para debuguear por parte de laravel
-    
-    return view('canciones', compact('canciones'));
-        //-> with(['canciones' => $canciones]);
-});
-
-Route::get('canciones/{id_cancion}', function ($id_cancion) {
-
-    $canciones = [];
-    $canciones[] = ['nombre' => 'Hola',
-                    'artista' => 'Yo'];
-    $canciones[] = ['nombre' => 'Adios',
-                    'artista' => 'Alguien'];
-
-    $cancion = $canciones[$id_cancion];
-
-    return view('detalleCancion', compact('cancion'));
-});
-
 //Agregar todo a la misma ruta:
-Route::get('canciones/{id_cancion?}', function ($id_cancion = null) {
+Route::get('canciones/{id?}', function ($id = null) {
 
     $canciones = [];
-    $canciones[] = ['nombre' => 'Hola',
-                    'artista' => 'Yo'];
-    $canciones[] = ['nombre' => 'Adios',
-                    'artista' => 'Alguien'];
+    $canciones[] = [
+        'nombre' => 'Hola',
+        'artista' => 'Yo'
+    ];
+    $canciones[] = ['nombre' => 'Adios','artista' => 'Alguien'];
 
-    if(!is_null($id_cancion)){
-        $cancion = $canciones[$id_cancion];
+    if(!is_null($id)){
+        $cancion = $canciones[$id];
     } else{
         $cancion = null;
     }
